@@ -18,14 +18,14 @@ function FileRow({
       onClick={() => onOpen(name)}
       className={`relative flex cursor-pointer items-center gap-2 rounded-[6px] px-2 py-1 text-[12.5px] transition-colors ${
         active
-          ? "bg-accent/[0.08] text-text"
-          : "text-dim hover:bg-white/[0.03] hover:text-text"
+          ? "bg-accent/8 text-text"
+          : "text-dim hover:bg-white/3 hover:text-text"
       }`}
     >
       {active && (
         <span className="absolute left-0 top-[5px] bottom-[5px] w-[2px] rounded-[2px] bg-accent" />
       )}
-      <span className={`w-[15px] flex-shrink-0 text-center text-[11px] font-bold ${f.icon[1]}`}>
+      <span className={`w-[15px] shrink-0 text-center text-[11px] font-bold ${f.icon[1]}`}>
         {f.icon[0]}
       </span>
       <span>{name}</span>
@@ -56,11 +56,11 @@ export default function Explorer({
                 onClick={() =>
                   setCollapsed((c) => ({ ...c, [node.name]: !c[node.name] }))
                 }
-                className="flex cursor-pointer items-center gap-[6px] rounded-[6px] px-2 py-1 text-[12.5px] text-dim hover:bg-white/[0.03]"
+                className="flex cursor-pointer items-center gap-[6px] rounded-[6px] px-2 py-1 text-[12.5px] text-dim hover:bg-white/3"
               >
                 <Icon.Chevron
                   className={`h-[14px] w-[14px] text-faint transition-transform ${
-                    collapsed[node.name] ? "-rotate-90" : ""
+                    collapsed[node.name] ? "" : "rotate-90"
                   }`}
                 />
                 <Icon.Files className="h-[14px] w-[14px]" />

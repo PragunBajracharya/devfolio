@@ -49,6 +49,11 @@ const config: Config = {
         blink: "blink 1.6s infinite",
         load: "load 1.3s ease forwards",
       },
+      backgroundImage: {
+        "linear-to-r": "linear-gradient(to right, var(--tw-gradient-stops))",
+        "linear-to-b": "linear-gradient(to bottom, var(--tw-gradient-stops))",
+        "linear-to-br": "linear-gradient(to bottom right, var(--tw-gradient-stops))",
+      },
     },
   },
   plugins: [],

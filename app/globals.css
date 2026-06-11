@@ -1,10 +1,184 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
-:root {
-  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
-  --font-display: 'Sora', system-ui, sans-serif;
+@theme {
+  --color-bg: #0a0d13;
+  --color-bg2: #0e131b;
+  --color-panel: #0c1017;
+  --color-sidebar: #0a0e14;
+  --color-titlebar: #10151e;
+  --color-line: #1b212c;
+  --color-line2: #222a36;
+  --color-text: #c8d3e0;
+  --color-dim: #6b7686;
+  --color-faint: #454f5e;
+  --color-accent: #39d4c5;
+  --color-accent2: #7aa2f7;
+  --color-warn: #e0af68;
+  --color-kw: #c792ea;
+  --color-str: #9ece6a;
+  --color-num: #ff9e64;
+  --color-com: #4b5566;
+  --color-prop: #7aa2f7;
+  --color-punc: #56c8d8;
+  --color-fn: #7dcfff;
+  --color-tag: #f7768e;
+
+  --font-mono: var(--font-mono), monospace;
+  --font-display: var(--font-display), sans-serif;
+
+  --animate-blink: blink 1.6s infinite;
+  --animate-load: load 1.3s ease forwards;
+
+  @keyframes blink {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.3;
+    }
+  }
+  @keyframes load {
+    to {
+      width: 100%;
+    }
+  }
+}
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
+
+@utility code-pre {
+  /* code area helpers (white-space:pre can't be a utility cleanly with tabs) */
+  white-space: pre;
+  tab-size: 2;
+}
+
+@utility ln {
+  height: 21px;
+  line-height: 21px;
+  display: block;
+  &:hover {
+    background: rgba(255, 255, 255, 0.02);
+  }
+}
+
+@utility gutter-line {
+  display: block;
+  height: 21px;
+  line-height: 21px;
+  padding: 0 14px 0 10px;
+}
+
+@utility t-kw {
+  /* ---- syntax tokens (emitted by the highlighter HTML strings) ---- */
+  color: #c792ea;
+}
+
+@utility t-str {
+  color: #9ece6a;
+}
+
+@utility t-num {
+  color: #ff9e64;
+}
+
+@utility t-bool {
+  color: #ff9e64;
+}
+
+@utility t-com {
+  color: #4b5566;
+  font-style: italic;
+}
+
+@utility t-prop {
+  color: #7aa2f7;
+}
+
+@utility t-punc {
+  color: #56c8d8;
+}
+
+@utility t-fn {
+  color: #7dcfff;
+}
+
+@utility t-tag {
+  color: #f7768e;
+}
+
+@utility t-md-h {
+  color: #39d4c5;
+  font-weight: 700;
+}
+
+@utility t-md-link {
+  color: #7aa2f7;
+}
+
+@utility t-md-b {
+  color: #c8d3e0;
+  font-weight: 700;
+}
+
+@utility t-ok {
+  /* ---- terminal output classes (emitted by command HTML strings) ---- */
+  color: #9ece6a;
+}
+
+@utility t-er {
+  color: #f7768e;
+}
+
+@utility t-mut {
+  color: #6b7686;
+}
+
+@utility t-acc {
+  color: #39d4c5;
+}
+
+@utility t-warn {
+  color: #e0af68;
+}
+
+@utility ascii {
+  color: #39d4c5;
+  line-height: 1.25;
+}
+
+@utility term-link {
+  color: #7aa2f7;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+@utility term-out {
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+@layer utilities {
+  :root {
+    --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+    --font-display: 'Sora', system-ui, sans-serif;
+  }
 }
 
 
@@ -19,59 +193,6 @@
     line-height: 1.6;
     overflow: hidden;
     -webkit-font-smoothing: antialiased;
-  }
-}
-
-@layer components {
-  /* code area helpers (white-space:pre can't be a utility cleanly with tabs) */
-  .code-pre {
-    white-space: pre;
-    tab-size: 2;
-  }
-  .ln {
-    height: 21px;
-    line-height: 21px;
-    display: block;
-  }
-  .ln:hover {
-    background: rgba(255, 255, 255, 0.02);
-  }
-  .gutter-line {
-    display: block;
-    height: 21px;
-    line-height: 21px;
-    padding: 0 14px 0 10px;
-  }
-
-  /* ---- syntax tokens (emitted by the highlighter HTML strings) ---- */
-  .t-kw { color: #c792ea; }
-  .t-str { color: #9ece6a; }
-  .t-num { color: #ff9e64; }
-  .t-bool { color: #ff9e64; }
-  .t-com { color: #4b5566; font-style: italic; }
-  .t-prop { color: #7aa2f7; }
-  .t-punc { color: #56c8d8; }
-  .t-fn { color: #7dcfff; }
-  .t-tag { color: #f7768e; }
-  .t-md-h { color: #39d4c5; font-weight: 700; }
-  .t-md-link { color: #7aa2f7; }
-  .t-md-b { color: #c8d3e0; font-weight: 700; }
-
-  /* ---- terminal output classes (emitted by command HTML strings) ---- */
-  .t-ok { color: #9ece6a; }
-  .t-er { color: #f7768e; }
-  .t-mut { color: #6b7686; }
-  .t-acc { color: #39d4c5; }
-  .t-warn { color: #e0af68; }
-  .ascii { color: #39d4c5; line-height: 1.25; }
-  .term-link {
-    color: #7aa2f7;
-    text-decoration: underline;
-    cursor: pointer;
-  }
-  .term-out {
-    white-space: pre-wrap;
-    word-break: break-word;
   }
 }
 

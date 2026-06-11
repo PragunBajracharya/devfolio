@@ -91,7 +91,7 @@ export default function CommandPalette({
           }}
           placeholder="Type a command or search files…"
           autoComplete="off"
-          className="w-full border-b border-line bg-transparent px-[18px] py-4 font-mono text-[14px] text-text outline-none"
+          className="w-full border-b border-line bg-transparent px-[18px] py-4 font-mono text-[14px] text-text outline-hidden"
         />
         <div className="max-h-[320px] overflow-y-auto p-2">
           {filtered.length === 0 ? (

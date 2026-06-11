@@ -36,7 +36,7 @@ export default function Boot() {
 
   return (
     <div
-      className={`fixed inset-0 z-[80] flex flex-col items-center justify-center gap-[18px] bg-bg transition-opacity duration-500 ${
+      className={`fixed inset-0 z-80 flex flex-col items-center justify-center gap-[18px] bg-bg transition-opacity duration-500 ${
         gone ? "opacity-0 pointer-events-none" : ""
       }`}
     >

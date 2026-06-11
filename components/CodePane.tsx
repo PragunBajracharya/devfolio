@@ -16,7 +16,7 @@ export default function CodePane({ file, mobileView }: { file: string; mobileVie
       }}
     >
       <div className="flex min-h-full text-[13px]">
-        <div className="min-w-[46px] flex-shrink-0 select-none py-[14px] text-right text-faint">
+        <div className="min-w-[46px] shrink-0 select-none py-[14px] text-right text-faint">
           {lines.map((_, i) => (
             <span key={i} className="gutter-line">
               {i + 1}
@@ -25,7 +25,7 @@ export default function CodePane({ file, mobileView }: { file: string; mobileVie
         </div>
         <div className="code-pre flex-1 py-[14px] px-[18px]">
           {lines.map((l, i) => (
-            <span
+            <div
               key={i}
               className="ln"
               dangerouslySetInnerHTML={{ __html: hlLine(l, meta.lang) }}

@@ -113,28 +113,28 @@ export default function Terminal({
         collapsed ? "h-[34px]" : "h-[230px]"
       }`}
     >
-      <div className="flex h-[34px] flex-shrink-0 select-none items-center gap-4 border-b border-line px-[14px]">
-        <span className="border-b-2 border-accent py-[2px] text-[11px] uppercase tracking-[0.1em] text-text">
+      <div className="flex h-[34px] shrink-0 select-none items-center gap-4 border-b border-line px-[14px]">
+        <span className="border-b-2 border-accent py-[2px] text-[11px] uppercase tracking-widest text-text">
           Terminal
         </span>
-        <span className="cursor-pointer border-b-2 border-transparent py-[2px] text-[11px] uppercase tracking-[0.1em] text-faint">
+        <span className="cursor-pointer border-b-2 border-transparent py-[2px] text-[11px] uppercase tracking-widest text-faint">
           Output
         </span>
-        <span className="hidden cursor-pointer border-b-2 border-transparent py-[2px] text-[11px] uppercase tracking-[0.1em] text-faint sm:inline">
+        <span className="hidden cursor-pointer border-b-2 border-transparent py-[2px] text-[11px] uppercase tracking-widest text-faint sm:inline">
           Problems
         </span>
         <div className="ml-auto flex gap-[10px] text-faint">
           <span
             onClick={() => setLines([])}
             title="Clear"
-            className="flex h-[22px] w-[22px] cursor-pointer items-center justify-center rounded-[5px] text-[14px] hover:bg-white/[0.06] hover:text-text"
+            className="flex h-[22px] w-[22px] cursor-pointer items-center justify-center rounded-[5px] text-[14px] hover:bg-white/6 hover:text-text"
           >
             ⌫
           </span>
           <span
             onClick={onToggle}
             title="Toggle (Ctrl+`)"
-            className="flex h-[22px] w-[22px] cursor-pointer items-center justify-center rounded-[5px] text-[14px] hover:bg-white/[0.06] hover:text-text"
+            className="flex h-[22px] w-[22px] cursor-pointer items-center justify-center rounded-[5px] text-[14px] hover:bg-white/6 hover:text-text"
           >
             {collapsed ? "▴" : "▾"}
           </span>
@@ -155,7 +155,7 @@ export default function Terminal({
         ))}
         <div className="flex items-center gap-2 py-[2px]">
           <span
-            className="flex-shrink-0"
+            className="shrink-0"
             dangerouslySetInnerHTML={{ __html: PROMPT }}
           />
           <input
@@ -166,7 +166,7 @@ export default function Terminal({
             autoComplete="off"
             autoCapitalize="off"
             spellCheck={false}
-            className="flex-1 bg-transparent font-mono text-[12.5px] text-text caret-accent outline-none"
+            className="flex-1 bg-transparent font-mono text-[12.5px] text-text caret-accent outline-hidden"
           />
         </div>
       </div>

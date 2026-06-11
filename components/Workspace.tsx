@@ -98,7 +98,7 @@ export default function Workspace() {
 						{/* mobile file chips */}
 						<div className="no-scrollbar flex gap-[6px] overflow-x-auto border-b border-line bg-panel px-[10px] py-2 md:hidden">
 							{Object.keys(FILES).map((f) => (
-								<button key={f} onClick={() => openFile(f)} className={`flex-shrink-0 whitespace-nowrap rounded-[7px] border px-[10px] py-[5px] text-[11.5px] ${f === active ? "border-accent text-accent" : "border-line2 text-dim"}`}>
+								<button key={f} onClick={() => openFile(f)} className={`shrink-0 whitespace-nowrap rounded-[7px] border px-[10px] py-[5px] text-[11.5px] ${f === active ? "border-accent text-accent" : "border-line2 text-dim"}`}>
 									{f}
 								</button>
 							))}
