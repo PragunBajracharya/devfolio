@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  --font-display: 'Sora', system-ui, sans-serif;
+}
+
+
+@layer base {
+  html,
+  body {
+    height: 100%;
+  }
+  body {
+    @apply bg-bg text-text font-mono;
+    font-size: 13.5px;
+    line-height: 1.6;
+    overflow: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+@layer components {
+  /* code area helpers (white-space:pre can't be a utility cleanly with tabs) */
+  .code-pre {
+    white-space: pre;
+    tab-size: 2;
+  }
+  .ln {
+    height: 21px;
+    line-height: 21px;
+    display: block;
+  }
+  .ln:hover {
+    background: rgba(255, 255, 255, 0.02);
+  }
+  .gutter-line {
+    display: block;
+    height: 21px;
+    line-height: 21px;
+    padding: 0 14px 0 10px;
+  }
+
+  /* ---- syntax tokens (emitted by the highlighter HTML strings) ---- */
+  .t-kw { color: #c792ea; }
+  .t-str { color: #9ece6a; }
+  .t-num { color: #ff9e64; }
+  .t-bool { color: #ff9e64; }
+  .t-com { color: #4b5566; font-style: italic; }
+  .t-prop { color: #7aa2f7; }
+  .t-punc { color: #56c8d8; }
+  .t-fn { color: #7dcfff; }
+  .t-tag { color: #f7768e; }
+  .t-md-h { color: #39d4c5; font-weight: 700; }
+  .t-md-link { color: #7aa2f7; }
+  .t-md-b { color: #c8d3e0; font-weight: 700; }
+
+  /* ---- terminal output classes (emitted by command HTML strings) ---- */
+  .t-ok { color: #9ece6a; }
+  .t-er { color: #f7768e; }
+  .t-mut { color: #6b7686; }
+  .t-acc { color: #39d4c5; }
+  .t-warn { color: #e0af68; }
+  .ascii { color: #39d4c5; line-height: 1.25; }
+  .term-link {
+    color: #7aa2f7;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  .term-out {
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+}
+
+/* custom scrollbars */
+::-webkit-scrollbar {
+  width: 11px;
+  height: 11px;
+}
+::-webkit-scrollbar-thumb {
+  background: #1c2430;
+  border-radius: 6px;
+  border: 3px solid transparent;
+  background-clip: padding-box;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2a3543;
+  background-clip: padding-box;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  scrollbar-width: none;
+}
