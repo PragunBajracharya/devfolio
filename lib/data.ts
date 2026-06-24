@@ -5,14 +5,16 @@
 
 export const PROFILE = {
 	name: "Pragun Bajracharya",
-	role: "Full-Stack Web Developer",
+	role: "Full-Stack Developer",
 	location: "Ontario, Canada",
 	origin: "Kathmandu, Nepal",
 	status: "available",
 	email: "pragunbaj99@gmail.com",
 	linkedin: "https://www.linkedin.com/in/pragun-bajracharya/",
 	github: "https://github.com/PragunBajracharya",
-	blurb: "I build fast, secure, end-to-end web applications — from React interfaces down to Node and database layers. Recently focused on cybersecurity & computer forensics.",
+	blurb: "I build fast, secure, end-to-end web applications — React and Next.js on " +
+		"the front, Node.js / Laravel / PHP on the back, and a Post-Graduate Diploma\n" +
+		"in Cybersecurity making sure nothing falls apart in between.",
 };
 
 export const STATS: [string, string][] = [
@@ -22,9 +24,12 @@ export const STATS: [string, string][] = [
 ];
 
 export const SKILLS: Record<string, string[]> = {
-	Frontend: ["React", "Next.js", "JavaScript", "Redux", "jQuery", "HTML5", "CSS3"],
-	Backend: ["Node.js", "PHP", "Laravel", "Python", "MySQL", "MongoDB"],
-	"DevOps & Tools": ["AWS", "Docker", "Git", "GitHub", "WordPress", "Shopify"],
+	frontend: ["React", "Next.js", "JavaScript", "Redux", "jQuery", "HTML5", "CSS3", "Tailwind"],
+	backend:  ["Node.js", "PHP", "Laravel", "Python", "Rest APIs", "Socket.io"],
+	database: ["MySQL", "MongoDB"],
+	devops:   ["AWS", "Docker", "Git", "GitHub"],
+	cms:      ["WordPress", "Shopify"],
+	security: ["OWASP fundamentals", "JWT / OAuth", "Web application security"]
 };
 
 export type Role = { yr: string; role: string; org: string };
@@ -54,6 +59,13 @@ export type Project = {
 	img: string;
 };
 export const PROJECTS: Project[] = [
+	{
+		name: "Devfolio",
+		desc: "An interactive IDE-style portfolio built with Next.js, React and Tailwind.",
+		stack: ["Next.js", "React", "Tailwind"],
+		url: "https://pragunbaj.com/",
+		img: "/images/Devfolio.png",
+	},
 	{
 		name: "Form Builder",
 		desc: "Drag-and-drop form builder, zero frameworks — pure DOM engineering.",
@@ -109,7 +121,7 @@ export const FILES: Record<string, FileMeta> = {
 		render: "readme",
 		code: `# Pragun Bajracharya
 
-> Full-Stack Web Developer · Ontario, Canada 🇨🇦
+> Full-Stack Developer · Ontario, Canada 🇨🇦
 
 Welcome to my workspace. This portfolio runs as a tiny IDE —
 explore the files on the left, or drive it from the terminal below.
@@ -120,9 +132,9 @@ explore the files on the left, or drive it from the terminal below.
 - focus the terminal   ->  run \\\`help\\\`, \\\`projects\\\`, \\\`neofetch\\\`
 
 ## What I do
-I design and ship web apps end to end: accessible front-ends in
-React / Next.js, APIs in Node and PHP, and the database, auth and
-deploy layers underneath. Lately: security & computer forensics.
+I build fast, secure, end-to-end web applications — React and Next.js on
+the front, Node.js / Laravel / PHP on the back, and a Post-Graduate Diploma
+in Cybersecurity making sure nothing falls apart in between.
 
 \\\`\\\`\\\`bash
 $ whoami
@@ -157,12 +169,12 @@ pragun — builder of things that load fast and don't break
 		render: "skills",
 		code: `// the toolkit I reach for, grouped by layer
 export const stack = {
-  frontend: ["React", "Next.js", "JavaScript",
-             "Redux", "jQuery", "HTML5", "CSS3"],
-  backend:  ["Node.js", "PHP", "Laravel",
-             "Python", "MySQL", "MongoDB"],
-  devops:   ["AWS", "Docker", "Git",
-             "GitHub", "WordPress", "Shopify"]
+  frontend: ["React", "Next.js", "JavaScript", "Redux", "jQuery", "HTML5", "CSS3", "Tailwind"],
+  backend:  ["Node.js", "PHP", "Laravel", "Python", "Rest APIs", "Socket.io"],
+  database: ["MySQL", "MongoDB"],
+  devops:   ["AWS", "Docker", "Git", "GitHub"],
+  cms:      ["WordPress", "Shopify"],
+  security: ["OWASP fundamentals", "JWT / OAuth", "Web application security"]
 };
 
 export const principle = "learn one new tool every project";`,
@@ -216,11 +228,40 @@ export default function Portfolio() {
 }
 
 const projects = [
-  { name: "Form Builder",      stack: ["HTML5","JS","Tailwind"] },
-  { name: "P Chat App",        stack: ["React","Socket.io"] },
-  { name: "Seven-Segment",     stack: ["Next.js","Bitwise"] },
-  { name: "Sorting Visualizer",stack: ["Next.js","Algorithms"] },
-  { name: "Chess Engine",      stack: ["Next.js","Game Logic"] }
+  {
+    name: "Devfolio",
+    description: "An interactive IDE-style portfolio built with Next.js, React and Tailwind.",
+    stack: ["Next.js", "React", "Tailwind"],
+    link: "https://pragunbaj.com/"
+  },
+  {
+    name: "P Chat App",
+    description: "Real-time messaging app with JWT auth, rooms, and live presence. Built with React, Node, Express, MongoDB, and Socket.io.",
+    stack: ["React", "Vite", "Node.js", "Express", "MongoDB", "Socket.io", "Zustand"],
+    link: "https://github.com/PragunBajracharya/p-chat",
+    highlight: "Security-conscious: JWT sessions, protected routes, server-side validation."
+  },
+  {
+    name: "Drag-and-Drop Form Builder",
+    description: "No-framework form builder in vanilla JS. Drag, drop, reorder, and export fields.",
+    stack: ["HTML5", "CSS3", "JavaScript", "Tailwind CSS"],
+    link: "https://form-builder.pragunbaj.com/",
+    highlight: "Zero dependencies — demonstrates raw JS and DOM mastery."
+  },
+  {
+    name: "Sorting Algorithm Visualizer",
+    description: "Animated visualizer for bubble, merge, and quicksort algorithms.",
+    stack: ["Next.js"],
+    link: "https://pragunbajracharya.github.io/sorting-visualizer/",
+    highlight: "Good for interviews — shows CS fundamentals in action."
+  },
+  {
+    name: "Chess Game",
+    description: "Fully playable chess implementation with standard piece movement and turn logic.",
+    stack: ["Next.js"],
+    link: "https://chess.pragunbaj.com/",
+    highlight: "Complex state management and rule enforcement in pure JS logic."
+  }
 ];`,
 	},
 
@@ -228,16 +269,18 @@ const projects = [
 		lang: "Markdown",
 		icon: ["MD", "text-[#83a8ff]"],
 		render: "contact",
-		code: `# Let's build something
+		code: `# Let's work together
 
-I'm open to full-time roles, freelance work and
-collaborations. The fastest way to reach me:
+I'm currently open to full-stack developer and application security roles.
 
-- **email**    -> pragunbaj99@gmail.com
-- **linkedin** -> /in/pragun-bajracharya
-- **github**   -> @PragunBajracharya
+| Channel  | Link 															|
+|----------|------------------------------------|
+| Email    | pragunbaj99@gmail.com 							|
+| LinkedIn | linkedin.com/in/pragun-bajracharya |
+| GitHub   | github.com/PragunBajracharya 			|
+| Portfolio| pragunbaj.com							|
 
-> Based in Canada · available worldwide / remote.`,
+> Response time: usually within 24 hours.`,
 	},
 
 	"package.json": {
