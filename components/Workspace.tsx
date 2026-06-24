@@ -89,7 +89,7 @@ export default function Workspace() {
 			<div className="grid h-screen grid-rows-[auto_1fr_auto]">
 				<TitleBar onPalette={() => setPaletteOpen(true)} />
 
-				<div className="grid min-h-0 grid-cols-1 md:grid-cols-[48px_230px_1fr]" style={{ height: `calc(100vh - ${termCollapsed ? "96px" : "292px"})` }}>
+				<div className="grid min-h-0 grid-cols-1 md:grid-cols-[48px_230px_1fr]">
 					<ActivityBar onPalette={() => setPaletteOpen(true)} onContact={() => openFile("contact.md")} />
 					<Explorer activeFile={active} onOpen={openFile} />
 
