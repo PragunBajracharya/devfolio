@@ -148,18 +148,22 @@ pragun — builder of things that load fast and don't break
 		render: "about",
 		code: `{
   "name": "Pragun Bajracharya",
-  "role": "Full-Stack Web Developer",
-  "based": "Ontario, Canada",
-  "from": "Kathmandu, Nepal",
-  "status": "open to opportunities",
-  "focus": ["web apps", "cyber security", "forensics"],
-  "stats": {
-    "yearsCoding": 5,
-    "technologies": 19,
-    "projectsShipped": 5
-  },
-  "values": ["clean code", "performance", "security-first"],
-  "currentlyLearning": ["threat hunting", "cloud security"]
+  "title": "Full-Stack Developer",
+  "location": "Ontario, Canada",
+  "origin": "Kathmandu, Nepal",
+  "status": "open to work",
+  "summary": "3+ years shipping web apps across PHP, Laravel, React, and Node. I also hold a PG Diploma in Cybersecurity & Computer Forensics — which means I think about auth, input validation, and attack surfaces while I build, not after.",
+  "interests": [
+    "Application security",
+    "Developer tooling",
+    "Real-time systems",
+    "Open source"
+  ],
+  "contact": {
+    "email": "pragunbaj99@gmail.com",
+    "linkedin": "https://linkedin.com/in/pragun-bajracharya",
+    "github": "https://github.com/PragunBajracharya"
+  }
 }`,
 	},
 
