@@ -9,8 +9,8 @@
   --color-line: #1b212c;
   --color-line2: #222a36;
   --color-text: #c8d3e0;
-  --color-dim: #6b7686;
-  --color-faint: #454f5e;
+  --color-dim: #a1a1aa;
+  --color-faint: #9ba3af;
   --color-accent: #39d4c5;
   --color-accent2: #7aa2f7;
   --color-warn: #e0af68;
@@ -147,7 +147,7 @@
 }
 
 @utility t-mut {
-  color: #6b7686;
+  color: #768396;
 }
 
 @utility t-acc {

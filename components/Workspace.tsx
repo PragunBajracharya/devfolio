@@ -84,7 +84,7 @@ export default function Workspace() {
 	);
 
 	return (
-		<>
+		<main>
 			<Boot />
 			<div className="grid h-screen grid-rows-[auto_1fr_auto]">
 				<TitleBar onPalette={() => setPaletteOpen(true)} />
@@ -118,6 +118,6 @@ export default function Workspace() {
 			</div>
 
 			<CommandPalette open={paletteOpen} onClose={() => setPaletteOpen(false)} openFile={openFile} toggleTerminal={toggleTerminal} runTerminal={runTerminal} />
-		</>
+		</main>
 	);
 }

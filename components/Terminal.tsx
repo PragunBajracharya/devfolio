@@ -163,6 +163,7 @@ export default function Terminal({
             value={value}
             onChange={(e) => setValue(e.target.value)}
             onKeyDown={onKey}
+            aria-label="Terminal command"
             autoComplete="off"
             autoCapitalize="off"
             spellCheck={false}
